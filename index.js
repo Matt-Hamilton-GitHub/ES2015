@@ -67,3 +67,25 @@ var instructor = {
 for(let val of arr){
   console.log(val);
 }
+
+// rest 
+
+function allArguments(...arg){
+  console.log(arg);
+  // (9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+allArguments(1,2,3,4,5,6,7,8,9)
+
+
+//spread 
+
+var arr1 = [10,20,40,50]
+var arr2 = [100,200,300]
+var arr3 = [1000, 2000, 3000]
+
+var combined = [...arr1,...arr2,...arr3]
+console.log(combined);
+
+var maxValue = Math.max(...combined)
+console.log('Max: '+ maxValue);
