@@ -1,30 +1,30 @@
-function tripleAndFilter(arr){
-    return arr.map(function(value){
-      return value * 3;
-    }).filter(function(value){
-      return value % 5 === 0;
-    })
-  }
+// function tripleAndFilter(arr){
+//     return arr.map(function(value){
+//       return value * 3;
+//     }).filter(function(value){
+//       return value % 5 === 0;
+//     })
+//   }
 
 
-  function doubleOddNumbers(arr){
-    return arr.filter(function(val){
-        return val % 2 !== 0;
-    }).map(function(val){
-        return val *2;
-    })
-}
+//   function doubleOddNumbers(arr){
+//     return arr.filter(function(val){
+//         return val % 2 !== 0;
+//     }).map(function(val){
+//         return val *2;
+//     })
+// }
 
-function mapFilterAndReduce(arr){
-    return arr.map(function(val){
-      return val.firstName
-    }).filter(function(val){
-      return val.length < 5;
-    }).reduce(function(acc,next){
-      acc[next] = next.length
-      return acc;
-    }, {})
-  }
+// function mapFilterAndReduce(arr){
+//     return arr.map(function(val){
+//       return val.firstName
+//     }).filter(function(val){
+//       return val.length < 5;
+//     }).reduce(function(acc,next){
+//       acc[next] = next.length
+//       return acc;
+//     }, {})
+//   }
 
 
 
@@ -47,3 +47,23 @@ var instructor = {
       setTimeout(() => console.log('Hello ' + this.firstName),1000)
     }
   }
+
+
+  //default parameters 
+
+  function add(a=2, b=6){
+    return a+b
+  }
+
+  add(2)
+  add(2,4)
+  add()
+  console.log(add());
+
+  // loop for of
+
+  var arr = ['a','b','c','d','e']
+
+for(let val of arr){
+  console.log(val);
+}
