@@ -373,4 +373,28 @@ class Motorcycle extends Vehicle{
       super(make, model, year)
       this.numWheels = 2
   }
+  
 }
+
+// Maps
+
+let myMap = new Map;
+
+myMap.set('name', 'matt')
+myMap.set('name', 'Eric')
+
+console.log('Map: ');
+console.log(myMap);
+console.log(myMap.size);
+
+//Set
+
+let mySet = new Set([3,1,4,1,5,3,2,1])
+
+console.log('Set:');
+
+console.log(mySet);
+console.log(mySet.size);
+console.log(mySet.delete(5));
+console.log(mySet);
+console.log(mySet.has(5));
