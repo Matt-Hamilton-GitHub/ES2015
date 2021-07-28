@@ -398,3 +398,7 @@ console.log(mySet.size);
 console.log(mySet.delete(5));
 console.log(mySet);
 console.log(mySet.has(5));
+
+let trySet = new Map()
+trySet.set('name', 'matt', 'age', '25')
+console.log(trySet.value);
