@@ -376,6 +376,13 @@ class Motorcycle extends Vehicle{
   
 }
 
+
+class Child extends Person{
+  constructor(firstName, lastName,favoriteColor, favoriteNumber){
+    super(firstName, lastName,favoriteColor, favoriteNumber)
+  }
+}
+
 // Maps
 
 let myMap = new Map;
