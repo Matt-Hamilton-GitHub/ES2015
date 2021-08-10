@@ -394,8 +394,9 @@ console.log('Map: ');
 console.log(myMap);
 console.log(myMap.size);
 
-//Set
-
+//Set - delites repeating values
+let once = new Set([1,1,1,1,1,1,2])
+console.log(once);
 let mySet = new Set([3,1,4,1,5,3,2,1])
 
 console.log('Set:');
