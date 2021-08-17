@@ -411,7 +411,7 @@ let trySet = new Map()
 trySet.set('name', 'matt', 'age', '25')
 console.log(trySet.value);
 
-class MessageBoard {
+
     
   /*
   In your constructor method, you should assign two properties for each object created from the MessageBoard class. 
@@ -426,11 +426,36 @@ class MessageBoard {
   m.id // 1
   */
   
-  constructor(messages, id){
-    this.messages = new Map()
-    this.id = 1
-}
-  
+  class MessageBoard {
+    constructor(){
+        this.messages = new Map
+        this.id = 1;
+    }
+
+    addMessage(value){
+      this.messages.set(this.id, value);
+      this.id++
+      return this;
+  }
+       findMessageById(id){
+    return this.messages.get(id)
+  }
+     findMessageByValue(val){
+     for (let msg of this.messages.values()) {
+      if(msg === val) return msg;
+    }
+  }
+     removeMessage(id){
+      this.messages.delete(id);
+      return this;
+  }
+      numberOfMessages(){
+      return this.messages.size;
+  }
+      messagesToArray(){
+      return Array.from(this.messages.values())
+  }
+  }
   /*
   
   Add a method called addMessage which accepts a string. The function should add a key and value to the messages 
