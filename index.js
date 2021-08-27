@@ -426,36 +426,63 @@ console.log(trySet.value);
   m.id // 1
   */
   
-  class MessageBoard {
-    constructor(){
-        this.messages = new Map
-        this.id = 1;
-    }
+class MesageBoard {
 
-    addMessage(value){
-      this.messages.set(this.id, value);
-      this.id++
-      return this;
-  }
-       findMessageById(id){
-    return this.messages.get(id)
-  }
-     findMessageByValue(val){
-     for (let msg of this.messages.values()) {
-      if(msg === val) return msg;
-    }
-  }
-     removeMessage(id){
-      this.messages.delete(id);
-      return this;
-  }
-      numberOfMessages(){
-      return this.messages.size;
-  }
-      messagesToArray(){
-      return Array.from(this.messages.values())
-  }
-  }
+constructor(){
+  this.message = new Map;
+  this.id = 1;
+}
+
+}
+
+var m = new MesageBoard
+console.log(m.messages.constructor);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // class MessageBoard {
+  //   constructor(){
+  //       this.messages = new Map
+  //       this.id = 1;
+  //   }
+
+  //   addMessage(value){
+  //     this.messages.set(this.id, value);
+  //     this.id++
+  //     return this;
+  // }
+  //      findMessageById(id){
+  //   return this.messages.get(id)
+  // }
+  //    findMessageByValue(val){
+  //    for (let msg of this.messages.values()) {
+  //     if(msg === val) return msg;
+  //   }
+  // }
+  //    removeMessage(id){
+  //     this.messages.delete(id);
+  //     return this;
+  // }
+  //     numberOfMessages(){
+  //     return this.messages.size;
+  // }
+  //     messagesToArray(){
+  //     return Array.from(this.messages.values())
+  // }
+  // }
   /*
   
   Add a method called addMessage which accepts a string. The function should add a key and value to the messages 
@@ -560,7 +587,7 @@ console.log(trySet.value);
   messagesToArray(){
       
   }
-}
+
 
 /*
 Write a function called uniqueValues which accepts an array and returns the number of unique values in the array
