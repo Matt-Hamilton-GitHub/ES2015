@@ -412,11 +412,10 @@ trySet.set('name', 'matt', 'age', '25')
 console.log(trySet.value);
 
 
+class MessageBoard {
     
   /*
-  In your constructor method, you should assign two properties for each object created from the MessageBoard class. 
-  The first should be a property called messages which is an empty Map, and the second is a property called id which
-   has a value of 1. 
+  In your constructor method, you should assign two properties for each object created from the MessageBoard class. The first should be a property called messages which is an empty Map, and the second is a property called id which has a value of 1. 
   
   var m = new MessageBoard
   
@@ -426,69 +425,16 @@ console.log(trySet.value);
   m.id // 1
   */
   
-class MesageBoard {
-
-constructor(){
-  this.message = new Map;
-  this.id = 1;
-}
-
-}
-
-var m = new MesageBoard
-console.log(m.messages.constructor);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // class MessageBoard {
-  //   constructor(){
-  //       this.messages = new Map
-  //       this.id = 1;
-  //   }
-
-  //   addMessage(value){
-  //     this.messages.set(this.id, value);
-  //     this.id++
-  //     return this;
-  // }
-  //      findMessageById(id){
-  //   return this.messages.get(id)
-  // }
-  //    findMessageByValue(val){
-  //    for (let msg of this.messages.values()) {
-  //     if(msg === val) return msg;
-  //   }
-  // }
-  //    removeMessage(id){
-  //     this.messages.delete(id);
-  //     return this;
-  // }
-  //     numberOfMessages(){
-  //     return this.messages.size;
-  // }
-  //     messagesToArray(){
-  //     return Array.from(this.messages.values())
-  // }
-  // }
+  constructor(messages, id){
+       this.messages = new Map()
+       this.id = 1
+  }
+  
   /*
   
-  Add a method called addMessage which accepts a string. The function should add a key and value to the messages 
-  map with a key of whatever the value of this.id is and a value of whatever the string is that is passed to the 
-  function. The function should return the object created from the class so that the method can be chained. 
-  (HINT - to implement the last part, make sure to return this).
+  Add a method called addMessage which accepts a string. The function should add a key and value to the messages map with a key of whatever 
+  the value of this.id is and a value of whatever the string is that is passed to the function. The function should return the object created from the 
+  class so that the method can be chained. (HINT - to implement the last part, make sure to return this).
   
   var m = new MessageBoard
   m.addMessage('hello');
@@ -497,14 +443,14 @@ console.log(m.messages.constructor);
   m.addMessage('awesome!').addMessage('nice!').addMessage('cool!') 
   */
   
-  addMessage(){
-      
+  addMessage(value){
+      this.messages.set(this.id, value)
+      this.id++
+      return this
   }
   
   /*
-  Add a method called findMessageById which accepts a number and returns the message in the messages map with 
-  the same key as the number passed to the function. If the key is not found in the messages map, the function 
-  should return undefined.
+  Add a method called findMessageById which accepts a number and returns the message in the messages map with the same key as the number passed to the function. If the key is not found in the messages map, the function should return undefined.
   
   
   var m = new MessageBoard
@@ -518,14 +464,13 @@ console.log(m.messages.constructor);
   m.findMessageById() // undefined
   */
   
-  findMessageById(){
+  findMessageById(num){
+      return this.messages.get(num)
     
   }
   
   /*
-  Add a method called findMessageByValue which accepts a string and returns the message in the messages map with 
-  the same value as the string passed to the function. If the value is not found in the messages map, the function 
-  should return undefined.
+  Add a method called findMessageByValue which accepts a string and returns the message in the messages map with the same value as the string passed to the function. If the value is not found in the messages map, the function should return undefined.
   
   var m = new MessageBoard
   m.addMessage('hello!')
@@ -539,8 +484,10 @@ console.log(m.messages.constructor);
   */
 
   
-  findMessageByValue(){
-    
+  findMessageByValue(val){
+    for(let msg of this.messages.values()){
+        if(msg === val) return msg;
+    }
   }
   
   /*
@@ -556,8 +503,9 @@ console.log(m.messages.constructor);
   m.removeMessage() // m
   */
   
-  removeMessage(){
-      
+  removeMessage(id){
+      this.messages.delete(id)
+      return this
   }
   
   /*
@@ -571,6 +519,7 @@ console.log(m.messages.constructor);
   */
   
   numberOfMessages(){
+      return this.messages.size
       
   }
   
@@ -585,9 +534,9 @@ console.log(m.messages.constructor);
   */
   
   messagesToArray(){
-      
+      return Array.from(this.messages.values())
   }
-
+}
 
 /*
 Write a function called uniqueValues which accepts an array and returns the number of unique values in the array
@@ -595,8 +544,9 @@ Write a function called uniqueValues which accepts an array and returns the numb
 uniqueValues([1,1,2,2,2,3,3,3,3,4,4,4,5,5,6]) // 6
 */
 
-function uniqueValues(){
+function uniqueValues(arr){
 
+  return new Set(arr).size
 }
 
 /*
@@ -608,7 +558,8 @@ hasDuplicates([1,2,3,4,5,6]) // false
 hasDuplicates([]) // false
 */
 
-function hasDuplicates(){
+function hasDuplicates(arr){
+  return new Set(arr).size !== arr.length
 
 }
 
@@ -625,6 +576,22 @@ countPairs([5,4,-10,6,-20,16],-4) // 2
 countPairs([0,-4],-4) // 1
 */
 
-function countPairs(){
+function countPairs(arr, num){
+  
+     var cache = new Set(arr);
+    var count = 0;
+    for(let val of arr){
+        cache.delete(val)
+        if(cache.has(num - val)){
+            count++
+        }
+    }
+    return count;
 
 }
+
+
+
+
+
+
